@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>بابا دوست دارم ❤️</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;min-height:100vh;overflow:hidden;
+ display:flex;align-items:center;justify-content:center;
+ font-family:Tahoma,Arial,sans-serif;color:white;
+ background:radial-gradient(ellipse at center,#42102f,#100817 65%,#030208);
+}
+.glow{position:absolute;width:300px;height:300px;border-radius:50%;
+ background:#ff1744;filter:blur(100px);opacity:.23;animation:light 2s infinite alternate}
+.content{z-index:2;text-align:center;padding:20px}
+.heart{
+ font-size:150px;line-height:1.5;display:block;
+ color:#ff1744;text-shadow:0 0 15px #ff1744,0 0 40px #ff1744,0 0 80px #ff1744;
+ animation:beat 1s infinite;cursor:pointer;user-select:none
+}
+h1{font-size:clamp(30px,8vw,52px);margin:12px 0;
+ text-shadow:0 0 18px #ff4d88}
+p{color:#ffd5e3;font-size:16px;line-height:2}
+button{border:1px solid #ff8aaa;color:white;background:#ff1744;
+ border-radius:30px;padding:13px 24px;font-size:16px;cursor:pointer;
+ box-shadow:0 0 22px #ff174466}
+.fall{position:fixed;top:-40px;z-index:1;pointer-events:none;
+ animation:fall linear forwards}
+@keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.18)}}
+@keyframes light{to{opacity:.45;transform:scale(1.3)}}
+@keyframes fall{to{transform:translateY(115vh) rotate(360deg);opacity:0}}
+</style>
+</head>
+<body>
+<div class="glow"></div>
+<main class="content">
+<div class="heart" id="heart">♥</div>
+<h1>بابا دوست دارم ❤️</h1>
+<p>بابای قشنگم، تو بهترین تکیه‌گاه دنیایی!<br>
+این قلب کوچیک، برای تو می‌تپه 💖</p>
+<button onclick="surprise()">یه سورپرایز برای بابا 💌</button>
+</main>
+<script>
+function rain(){
+ const e=document.createElement('span');
+ e.className='fall';
+ e.textContent=['❤️','💖','💕','💗','♥'][Math.floor(Math.random()*5)];
+ e.style.left=Math.random()*100+'vw';
+ e.style.fontSize=(15+Math.random()*25)+'px';
+ const duration=3+Math.random()*4;
+ e.style.animationDuration=duration+'s';
+ document.body.appendChild(e);
+ setTimeout(()=>e.remove(),duration*1000);
+}
+setInterval(rain,180);
+function surprise(){
+ alert('بابا جونم، از ته قلبم دوست دارم! ❤️ تو بهترین بابای دنیایی!');
+ for(let i=0;i<30;i++)setTimeout(rain,i*70);
+}
+document.getElementById('heart').onclick=surprise;
+</script>
+</body>
+</html>
